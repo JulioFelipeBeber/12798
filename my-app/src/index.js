@@ -8,7 +8,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const name= 'Opa'
 
-cons element =<h1>'Tudo tranquilo</h1>
+const element =<h1>'Tudo tranquilo</h1>
 
 root.render(
     element
