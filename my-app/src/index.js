@@ -6,28 +6,23 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const name= 'ddd'
+//function Ola(props) {
+  //return <h1>{props.name}- {props.lastName}</h1>
+//}
 
-function FormatName(user){
+class Ola extends React.Component{
 
-  return user.firstName + ' - ' + user.lastName;
+  render() {
+    return<h1>{this.props.name}- {this.props.lastName}</h1>
+  }
+
 }
-
-const user = {
-  firstName:'Julio',
-  lastName: 'Felipe'
-
-}
-
-const element= (
-  <>
-  <h1>Hello, {FormatName(user)}</h1>
-  <h1>Hello, {FormatName(user)}</h1>
-  </>
-)
 
 root.render(
-  element
+  <>
+  <Ola name='Julio' lastName='Felipe'> </Ola>
+  <Ola name='Teste'></Ola>
+  </>
 )
 
 
