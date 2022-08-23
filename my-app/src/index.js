@@ -6,24 +6,29 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const name1= 'JULIAO'
+const name= 'ddd'
 
-const element1= <h1>tamo junto beleza{name1}</h1>
+function FormatName(user){
 
-function tick() {
-  const element=( 
-    <div>
-    <h1>Aprendendo React</h1>
-    <h2>It is {new Date().toLocaleTimeString()}.</h2>
-  </div>
+  return user.firstName + ' - ' + user.lastName;
+}
+
+const user = {
+  firstName:'Julio',
+  lastName: 'Felipe'
+
+}
+
+const element= (
+  <>
+  <h1>Hello, {FormatName(user)}</h1>
+  <h1>Hello, {FormatName(user)}</h1>
+  </>
 )
 
 root.render(
   element
 )
-}
-
-setInterval(tick,1000);
 
 
 //root.render(
