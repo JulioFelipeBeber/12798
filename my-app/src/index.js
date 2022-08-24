@@ -6,32 +6,39 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-//function Ola(props) {
-  //return <h1>{props.name}- {props.lastName}</h1>
-//}
-
-class Ola extends React.Component{
-
-  render() {
-    return<h1>{this.props.name}- {this.props.lastName}</h1>
+class Relogio extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state={date: new Date()};
   }
+
+componentDidMount() {
+  this.timerID= setInterval(() => this.tick(),1000);
 
 }
 
+tick() {
+  this.setState({date: new Date()})
+}
+
+
+componentWillUnmont() {
+  clearInterval(this.timerID)
+}
+
+render() {
+  return (
+    <div>
+      <h1>Opa!!</h1>
+      <h2>Hora agora: {this.state.date.toLocaleTimeString()}</h2>
+    </div>
+  )
+}
+}
+
 root.render(
-  <>
-  <Ola name='Julio' lastName='Felipe'> </Ola>
-  <Ola name='Teste'></Ola>
-  </>
-)
-
-
-//root.render(
-  //<React.StrictMode>
-    //<App />
-  //</React.StrictMode>
-//);
-
+<Relogio />
+);
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
