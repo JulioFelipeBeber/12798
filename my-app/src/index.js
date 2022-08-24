@@ -7,97 +7,84 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
-// function Ola(props) {
-//   return <h1>{props.name} - {props.lastName}</h1>
-// }
+class Lista extends React.Component {
 
-// const Ola = (props) => {
-//   return <h1>{props.name} - {props.lastName}</h1>
-// }
+  constructor(props) {
+    super(props)
+    this.state = {
+      dados: [{
+        "cep": "20260-080",
+        "logradouro": "xpto",
+        "complemento": "até 392/393",
+        "bairro": "abc",
+        "localidade": "Curitiba",
+        "uf": "RJ"
+      },
+      {
+        "cep": "20260-080",
+        "logradouro": "xpto 01",
+        "complemento": "até 392/393",
+        "bairro": "jk",
+        "localidade": "Curitiba",
+        "uf": "RJ"
+      },
+      {
+        "cep": "20260-080",
+        "logradouro": "xpto 02",
+        "complemento": "até 392/393",
+        "bairro": "jk",
+        "localidade": "Curitiba",
+        "uf": "RJ"
+      }]
+    }
+  }
 
-class Ola extends React.Component {
+  componentDidMount() {
+
+    
+
+  }
+
+  componentWillUnmount() {
+
+  }
+
   render() {
-    return <h1>{this.props.name} - {this.props.lastName} - {this.props.idade}</h1>
+    return (
+      <div>
+        <h1>Opa!!</h1>
+        {this.state.dados.map((registro, index) =>
+          <Endereco key={index} numero={index} endereco={registro}></Endereco>)}
+      </div>
+    )
   }
 }
 
-let dadosBasicos1 = {
-  nome: "Nome 01",
-  sobrenome: "Teste 001",
-  idade: 10
-}
-let dadosBasicos2 = {
-  nome: "Nome 02",
-  sobrenome: "Teste 002",
-  idade: 20
-}
-let dadosBasicos3 = {
-  nome: "Nome 03",
-  sobrenome: "Teste 003",
-  idade: 30
-}
-
-let enderecoResidencial1 = {
-  rua: "Rua residencial 1"
-}
-
-let enderecoComercial1 = {
-  rua: "Rua comercial 1"
-}
-
-class DadosBasicos extends React.Component {
-  render() {
-
-    return <h2>Dados Básicos -
-      {this.props.dados.nome} -
-      {this.props.dados.sobrenome} -
-      {this.props.dados.idade}</h2>
-  }
-}
 
 class Endereco extends React.Component {
-  render() {
-    return <h3>{this.tipo} - {this.props.endereco.rua}</h3>
+  constructor(props) {
+    super(props)
   }
 
-}
-
-class DadosProfissionais extends React.Component {
   render() {
-    return <h3>{this.props.ocupacao}</h3>
+    return (
+      <>
+        <h2>Endereço nrº: {this.props.numero + 1}</h2>
+        <p>{this.props.endereco.logradouro}</p>
+        <p>{this.props.endereco.cep}</p>
+        <p>{this.props.endereco.complemento}</p>
+        <p>{this.props.endereco.bairro}</p>
+        <p>{this.props.endereco.localidade}</p>
+        <p>{this.props.endereco.uf}</p>
+      </>
+    )
   }
-}
 
-// class Cadastro extends React.Component {
-//   render() {
-//     return <DadosBasicos dados={dadosBasicos}></DadosBasicos>
-//   }
-// }
+
+}
 
 root.render(
-  <>
-    <h1>Cadastro Simples</h1>
-    <DadosBasicos dados={dadosBasicos1}></DadosBasicos>
-    <Endereco tipo="Residencial" endereco={enderecoResidencial1}></Endereco>
-    <Endereco tipo="Comercial" endereco={enderecoComercial1}></Endereco>
-    <DadosProfissionais ocupacao="Bartender"></DadosProfissionais>
-    <DadosProfissionais ocupacao="Programador"></DadosProfissionais>
-    <DadosProfissionais ocupacao="Atendente"></DadosProfissionais>
-
-    <DadosBasicos dados={dadosBasicos2}></DadosBasicos>
-    <Endereco tipo="Residencial" endereco={enderecoResidencial1}></Endereco>
-    <Endereco tipo="Comercial" endereco={enderecoComercial1}></Endereco>
-    <DadosProfissionais ocupacao="Bartender"></DadosProfissionais>
-    <DadosProfissionais ocupacao="Programador"></DadosProfissionais>
-    <DadosProfissionais ocupacao="Atendente"></DadosProfissionais>
-
-    <DadosBasicos dados={dadosBasicos3}></DadosBasicos>
-    <Endereco tipo="Residencial" endereco={enderecoResidencial1}></Endereco>
-    <Endereco tipo="Comercial" endereco={enderecoComercial1}></Endereco>
-    <DadosProfissionais ocupacao="Bartender"></DadosProfissionais>
-    <DadosProfissionais ocupacao="Programador"></DadosProfissionais>
-    <DadosProfissionais ocupacao="Atendente"></DadosProfissionais>
-  </>
+  <Lista />
 );
 
 // If you want to start measuring performance in your app, pass a function
